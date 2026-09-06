@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LoginComponent />
+    <LoginComponent :imagen="require(`@/assets/skydrop_logo.png`)" />
   </div>
 </template>
 
@@ -25,9 +25,12 @@ export default {
   box-sizing: border-box;
 }
 body {
+  display: flex;
   font-family: Arial, sans-serif;
-  background-color: #4e4e4e;
+  background-color: #242649;
   height: 100vh;
   width: 100vw;
+  justify-content: center;
+  align-items: center;
 }
 </style>
