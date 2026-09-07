@@ -12,6 +12,14 @@ const routes = [
     path: "/InterfazView",
     name: "InterfazView",
     component: InterfazView,
+    // Metemos la ruta aquí adentro para que herede el menú fijo
+    children: [
+      {
+        path: "/rastreo", 
+        name: "rastreo",
+        component: () => import("../views/RastreoView.vue"),
+      },
+    ],
   },
 ];
 

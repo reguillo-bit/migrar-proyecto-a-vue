@@ -3,7 +3,7 @@
     <h1>Whining</h1>
     <div class="menu-conten">
       <p class="menu">inicio</p>
-      <p class="menu">rastreo</p>
+      <router-link to="/rastreo" class="menu">rastreo</router-link>
       <p class="menu">acerca de</p>
       <p class="menu">contacto</p>
     </div>
@@ -46,6 +46,7 @@ h1 {
 .menu {
   font-weight: 100px;
   color: aliceblue;
+  text-decoration: none; /* Evita que se subraye el texto del enlace */
 }
 .menu:hover {
   color: rgb(1, 209, 252);
