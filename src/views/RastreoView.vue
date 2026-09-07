@@ -1,4 +1,5 @@
 <template>
+  <HeaderComponent />
   <div class="rastreo-page-container">
     <div class="marco-exterior">
       <div class="panel">
@@ -28,7 +29,6 @@
         </div>
       </div>
     </div>
-
     <!-- Importamos el Footer al final de la vista de rastreo -->
     <FooterComponent />
   </div>
@@ -36,12 +36,14 @@
 
 <script>
 import FooterComponent from "@/components/FooterComponent.vue";
+import HeaderComponent from "@/components/HeaderComponent.vue";
 
 export default {
   name: "RastreoView",
   components: {
-    FooterComponent
-  }
+    FooterComponent,
+    HeaderComponent,
+  },
 };
 </script>
 
@@ -160,16 +162,34 @@ export default {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .panel { width: 95%; }
-  .fila-principal { height: 350px; }
-  .boton-inferior { width: 150px; }
+  .panel {
+    width: 95%;
+  }
+  .fila-principal {
+    height: 350px;
+  }
+  .boton-inferior {
+    width: 150px;
+  }
 }
 
 @media (max-width: 480px) {
-  .panel { width: 100%; }
-  .fila-principal { height: 250px; }
-  .barra-inferior { flex-direction: column; height: auto; }
-  .boton-inferior { width: 100%; height: 40px; }
-  .iconos-laterales { width: 34px; }
+  .panel {
+    width: 100%;
+  }
+  .fila-principal {
+    height: 250px;
+  }
+  .barra-inferior {
+    flex-direction: column;
+    height: auto;
+  }
+  .boton-inferior {
+    width: 100%;
+    height: 40px;
+  }
+  .iconos-laterales {
+    width: 34px;
+  }
 }
 </style>

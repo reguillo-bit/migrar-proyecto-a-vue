@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <footer>
     <div class="footer-columnas">
       <div class="footer-columna">
         <h3>WingIng</h3>
@@ -9,8 +9,8 @@
 
       <div class="footer-columna">
         <h3>Navegación</h3>
-        <router-link to="/InterfazView">Inicio</router-link>
-        <router-link to="/rastreo">Rastreo</router-link>
+        <p>Inicio</p>
+        <p>Rastreo</p>
         <p>Acerca de</p>
         <p>Contacto</p>
       </div>
@@ -26,20 +26,20 @@
     <div class="footer-final">
       <p>2026 WingIng. Todos los derechos reservados.</p>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>
 export default {
-  name: "FooterComponent"
+  name: "FooterComponent",
 };
 </script>
 
 <style scoped>
-.footer {
+footer {
   background-color: #2a2a2a;
   padding: 40px 20px 20px 20px;
-  border-top: 2px solid #00c896;
+  border-top: 2px solid rgb(1, 209, 252);
   width: 100%;
 }
 .footer-columnas {
@@ -53,7 +53,8 @@ export default {
   font-size: 0.9rem;
   margin-bottom: 12px;
 }
-.footer-columna p, .footer-columna a {
+.footer-columna p,
+.footer-columna a {
   color: #888888;
   font-size: 0.82rem;
   margin-bottom: 8px;
@@ -65,7 +66,7 @@ export default {
 }
 .footer-final {
   text-align: center;
-  border-top: 1px solid #00c89630;
+  border-top: 2px solid rgb(1, 209, 252);
   padding-top: 16px;
 }
 .footer-final p {
@@ -73,7 +74,9 @@ export default {
   font-size: 0.75rem;
 }
 @media (max-width: 768px) {
-  .footer-columnas { gap: 30px; }
+  .footer-columnas {
+    gap: 30px;
+  }
 }
 @media (max-width: 480px) {
   .footer-columnas {

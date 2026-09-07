@@ -55,7 +55,7 @@ export default {
   methods: {
     iniciarsesion() {
       if (this.usuario === "admin" && this.contrasena === "admin") {
-        window.location.href = "InterfazView";
+        this.$router.push({ name: "InterfazView" });
         this.sesion = true;
       } else if (this.usuario !== "admin" || this.contrasena !== "admin") {
         this.usuario = "";

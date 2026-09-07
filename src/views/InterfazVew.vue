@@ -2,21 +2,19 @@
   <div class="interfaz-container">
     <!-- El menú siempre se queda fijo aquí arriba -->
     <HeaderComponent />
-    
-    <!-- Aquí abajo se cargará dinámicamente tu mapa o cualquier otra sección -->
-    <main class="contenido-dinamico">
-      <router-view />
-    </main>
+    <section class="conten"></section>
+    <FooterComponent />
   </div>
 </template>
 
 <script>
+import FooterComponent from "@/components/FooterComponent.vue";
 import HeaderComponent from "@/components/HeaderComponent.vue";
-
 export default {
   name: "InterfazView",
   components: {
     HeaderComponent,
+    FooterComponent,
   },
 };
 </script>
@@ -44,5 +42,16 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+.conten {
+  justify-self: center;
+  align-self: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: grid;
+  width: 90%;
+  height: 700px;
+  background-color: black;
+  border-radius: 20px;
 }
 </style>

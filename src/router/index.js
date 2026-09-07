@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LoginViews from "../views/LoginViews.vue";
 import InterfazView from "@/views/InterfazVew.vue";
+import RastreoView from "@/views/RastreoView.vue";
 
 const routes = [
   {
@@ -12,14 +13,11 @@ const routes = [
     path: "/InterfazView",
     name: "InterfazView",
     component: InterfazView,
-    // Metemos la ruta aquí adentro para que herede el menú fijo
-    children: [
-      {
-        path: "/rastreo", 
-        name: "rastreo",
-        component: () => import("../views/RastreoView.vue"),
-      },
-    ],
+  },
+  {
+    path: "/RastreoView",
+    name: "RastreoView",
+    component: RastreoView,
   },
 ];
 

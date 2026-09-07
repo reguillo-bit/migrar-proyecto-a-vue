@@ -2,8 +2,8 @@
   <header>
     <h1>Whining</h1>
     <div class="menu-conten">
-      <p class="menu">inicio</p>
-      <router-link to="/rastreo" class="menu">rastreo</router-link>
+      <p class="menu" @click="inicio">inicio</p>
+      <p class="menu" @click="rastreo">rastreo</p>
       <p class="menu">acerca de</p>
       <p class="menu">contacto</p>
     </div>
@@ -13,6 +13,17 @@
 <script>
 export default {
   name: "HeaderComponent",
+  props: {
+    buscar: Boolean,
+  },
+  methods: {
+    rastreo() {
+      this.$router.push({ name: "RastreoView" });
+    },
+    inicio() {
+      this.$router.push({ name: "InterfazView" });
+    },
+  },
 };
 </script>
 

@@ -1,12 +1,14 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
+import FooterComponent from "./components/FooterComponent.vue";
+import HeaderComponent from "./components/HeaderComponent.vue";
+import LoginComponent from "./components/LoginComponent.vue";
 
-// Creamos la aplicación
-const app = createApp(App);
+const app = createApp(App).use(router);
 
-// Conectamos el enrutador
-app.use(router);
+app.component("FooterComponent", FooterComponent);
+app.component("HeaderComponent", HeaderComponent);
+app.component("LoginComponent", LoginComponent);
 
-// Montamos la aplicación al final de todo
 app.mount("#app");
