@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="login-view">
     <LoginComponent :imagen="require(`@/assets/skydrop_logo.png`)" />
   </div>
 </template>
 
 <script>
-import LoginComponent from "../components/LoginComponent.vue";
+import LoginComponent from "@/components/LoginComponent.vue";
 
 export default {
   name: "LoginViews",
@@ -19,18 +19,10 @@ export default {
 </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
+.login-view {
   display: flex;
-  font-family: Arial, sans-serif;
-  background-color: #242649;
-  height: 100vh;
-  width: 100vw;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 </style>

@@ -25,11 +25,11 @@
       <button class="boton" @click="iniciarsesion">Iniciar sesión</button>
 
       <div class="imagen2">
-        <img width="30%" :src="require('@/assets/google.png')" alt="Imagen 2" />
+        <img width="10%" :src="require('@/assets/google.png')" alt="Imagen 2" />
       </div>
       <div class="imagen3">
         <img
-          width="30%"
+          width="10%"
           :src="require('@/assets/facebook.png')"
           alt="Imagen 3"
         />
@@ -55,7 +55,7 @@ export default {
   methods: {
     iniciarsesion() {
       if (this.usuario === "admin" && this.contrasena === "admin") {
-        window.location.href = "/home";
+        window.location.href = "InterfazView";
         this.sesion = true;
       } else if (this.usuario !== "admin" || this.contrasena !== "admin") {
         this.usuario = "";
@@ -82,7 +82,6 @@ export default {
   align-items: center;
   width: 450px;
   height: 750px;
-  align-self: center;
   border-radius: 20px;
   background-image: linear-gradient(to bottom, #111111, #111111, #a9aaac);
 }
@@ -154,5 +153,17 @@ export default {
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .caja {
+    justify-self: center;
+    align-self: center;
+    width: 90%;
+    height: 600px;
+  }
+  .contedor-grid {
+    width: 50%;
+    height: 80px;
+  }
 }
 </style>
