@@ -2,7 +2,7 @@
   <section class="carta">
     <img :src="imagen" alt="" />
     <p class="p">{{ nombre }}</p>
-    <div>boton</div>
+    <div class="boton2">boton</div>
   </section>
 </template>
 
@@ -16,24 +16,40 @@ export default {
 </script>
 
 <style>
-.carta {
-  display: flex;
+.carta img {
+  display: block;
   width: 100%;
-  height: 100%;
-  border-radius: 20px;
+  height: 125px;
+  border-start-start-radius: 10px;
+  border-start-end-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.carta:hover {
+  transform: scale(1.1);
 }
 .p {
   display: flex;
-  height: 60px;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
   width: 100%;
+
+  padding: 12px;
   background-color: gray;
 }
-.boton {
+.boton2 {
   display: flex;
-  height: 60px;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
   width: 100%;
+  padding: 0 12px;
+  border-end-end-radius: 10px;
+  border-end-start-radius: 10px;
+  background-color: burlywood;
 }
-.boton:hover {
+.boton2:hover {
   background-color: aliceblue;
   cursor: pointer;
 }
