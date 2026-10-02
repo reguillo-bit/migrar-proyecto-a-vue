@@ -4,10 +4,12 @@
     <HeaderComponent />
     <section class="conten">
       <CardComponent
-        v-for="carta in cartas"
-        :key="carta.nombre"
-        :imagen="carta.imagen"
-        :nombre="carta.nombre"
+        v-for="comida in comidas"
+        :key="comida.id"
+        :id="comida.id"
+        :imagen="comida.imagen"
+        :nombre="comida.nombre"
+        :costo="comida.precio"
       />
     </section>
     <FooterComponent />
@@ -28,69 +30,24 @@ export default {
   },
   data() {
     return {
-      cartas: [
-        {
-          imagen:
-            "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=85",
-          nombre: "comida 1",
-        },
-        {
-          imagen:
-            "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=85",
-          nombre: "comida 2",
-        },
-        {
-          imagen:
-            "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=85",
-          nombre: "comida 3",
-        },
-        {
-          imagen:
-            "https://images.unsplash.com/photo-1550547660-d9450f859349?w=1200&q=85",
-          nombre: "comida 4",
-        },
-        {
-          imagen:
-            "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&q=85",
-          nombre: "comida 5",
-        },
-        {
-          imagen:
-            "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=1200&q=85",
-          nombre: "comida 6",
-        },
-        {
-          imagen:
-            "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=85",
-          nombre: "comida 7",
-        },
-        {
-          imagen:
-            "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&q=85",
-          nombre: "comida 8",
-        },
-        {
-          imagen:
-            "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&q=85",
-          nombre: "comida 9",
-        },
-        {
-          imagen:
-            "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&q=85",
-          nombre: "comida 10",
-        },
-        {
-          imagen:
-            "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&q=85",
-          nombre: "comida 11",
-        },
-        {
-          imagen:
-            "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&q=85",
-          nombre: "comida 12",
-        },
-      ],
+      comidas: [],
+      loading: true,
     };
+  },
+  methods: {
+    getallcomida: async function () {
+      this.loading = true;
+      await this.axios
+        .get("https://api-comidas-app.onrender.com/comidas")
+        .then((response) => {
+          this.comidas = response.data;
+          console.log(this.comidas);
+        })
+        .finally(() => (this.loading = false));
+    },
+  },
+  created() {
+    this.getallcomida();
   },
 };
 </script>
@@ -121,7 +78,7 @@ body {
   display: grid;
   width: 90%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   padding: 20px;
   gap: 50px;
   background-color: black;

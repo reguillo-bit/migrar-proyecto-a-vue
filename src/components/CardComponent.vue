@@ -1,8 +1,8 @@
 <template>
   <section class="carta">
     <img :src="imagen" alt="" />
-    <p class="p">{{ nombre }}</p>
-    <div class="boton2">boton</div>
+    <p class="p">id: {{ id }} {{ nombre }} costo: ${{ costo }}</p>
+    <div class="boton2">agregar al carrito</div>
   </section>
 </template>
 
@@ -11,6 +11,8 @@ export default {
   props: {
     imagen: String,
     nombre: String,
+    id: Number,
+    costo: Number,
   },
 };
 </script>
@@ -19,7 +21,7 @@ export default {
 .carta img {
   display: block;
   width: 100%;
-  height: 125px;
+  height: 150px;
   border-start-start-radius: 10px;
   border-start-end-radius: 10px;
   object-fit: cover;
