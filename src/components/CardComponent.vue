@@ -21,7 +21,7 @@ export default {
 .carta img {
   display: block;
   width: 100%;
-  height: 150px;
+  height: 170px;
   border-start-start-radius: 10px;
   border-start-end-radius: 10px;
   object-fit: cover;
