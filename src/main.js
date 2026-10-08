@@ -5,6 +5,7 @@ import FooterComponent from "./components/FooterComponent.vue";
 import HeaderComponent from "./components/HeaderComponent.vue";
 import LoginComponent from "./components/LoginComponent.vue";
 import CardComponent from "./components/CardComponent.vue";
+import SliderComponent from "./components/SliderComponent.vue";
 import Axios from "axios";
 import VueAxios from "vue-axios";
 import Aura from "@primeuix/themes/aura";
@@ -18,6 +19,7 @@ app.component("FooterComponent", FooterComponent);
 app.component("HeaderComponent", HeaderComponent);
 app.component("LoginComponent", LoginComponent);
 app.component("CardComponent", CardComponent);
+app.component("SliderComponent", SliderComponent);
 app.use(VueAxios, Axios);
 app.use(PrimeVue, {
   theme: {

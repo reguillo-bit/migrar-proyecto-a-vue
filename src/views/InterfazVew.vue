@@ -3,6 +3,7 @@
     <!-- El menú siempre se queda fijo aquí arriba -->
     <HeaderComponent />
     <section class="novisible">
+      <SliderComponent />
       <section class="conten">
         <CardComponent
           v-for="comida in comidas"
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+import SliderComponent from "@/components/SliderComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 import HeaderComponent from "@/components/HeaderComponent.vue";
 import CardComponent from "@/components/CardComponent.vue";
@@ -30,6 +32,7 @@ export default {
     HeaderComponent,
     FooterComponent,
     CardComponent,
+    SliderComponent,
   },
   data() {
     return {
@@ -41,7 +44,7 @@ export default {
     getallcomida: async function () {
       this.loading = true;
       await this.axios
-        .get("https://api-comidas-app.onrender.com/comidas")
+        .get("https://api-comidas-phio.onrender.com/comidas")
         .then((response) => {
           this.comidas = response.data;
           console.log(this.comidas);
@@ -72,37 +75,38 @@ body {
 
 /* El contenido ocupa todo el espacio restante abajo del menú */
 .novisible {
-  display: flex;
-  width: 100%;
-  height: auto;
-  flex-direction: row;
+  display: grid;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 .conten {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   display: grid;
   justify-self: center;
-  display: grid;
-  width: 80%;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto auto;
   padding: 20px;
-  gap: 50px;
+  gap: 30px;
   background-color: black;
   border-radius: 20px;
+  grid-column: span 5;
+  grid-row: span 5;
 }
 .contecuenta {
-  display: flex;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  justify-self: center;
-  width: 20%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
   background-color: black;
   padding: 20px;
-  gap: 50px;
+  gap: 20px;
   border-radius: 20px;
+  grid-column: span 1;
+  grid-row: span 5;
 }
 </style>
