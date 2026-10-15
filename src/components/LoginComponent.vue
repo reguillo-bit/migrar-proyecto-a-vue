@@ -15,10 +15,7 @@
     />
     <!--condicionale v-if, v-else-if, v-else-->
     <span class="correcto" v-if="this.sesion === true">
-      acceso autorizado
-    </span>
-    <span class="error" v-else-if="this.sesion === false">
-      acceso denegado
+      <p @click="createcomida">acceso autorizado</p>
     </span>
 
     <div class="contedor-grid">
@@ -49,18 +46,21 @@ export default {
     return {
       usuario: "",
       contrasena: "",
-      sesion: null,
+      estatus: false,
+      sesion: false,
     };
   },
   methods: {
     iniciarsesion() {
       if (this.usuario === "admin" && this.contrasena === "admin") {
-        this.$router.push({ name: "InterfazView" });
         this.sesion = true;
+        localStorage.setItem("sesion", "true");
+        this.$router.push({ name: "InterfazView" });
       } else if (this.usuario !== "admin" || this.contrasena !== "admin") {
         this.usuario = "";
         this.contrasena = "";
         this.sesion = false;
+        localStorage.setItem("sesion", "false");
       }
     },
   },

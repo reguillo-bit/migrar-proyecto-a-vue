@@ -22,8 +22,8 @@ export default {
   display: block;
   width: 100%;
   height: 170px;
-  border-start-start-radius: 10px;
-  border-start-end-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
