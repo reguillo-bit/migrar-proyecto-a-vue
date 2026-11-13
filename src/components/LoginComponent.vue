@@ -14,13 +14,15 @@
       placeholder="Contraseña"
     />
     <!--condicionale v-if, v-else-if, v-else-->
-    <span class="correcto" v-if="this.sesion === true">
+    <span class="correcto" v-if="this.sesion">
       <p @click="createcomida">acceso autorizado</p>
+    </span>
+    <span class="error" v-else>
+      <p>acceso denegado</p>
     </span>
 
     <div class="contedor-grid">
-      <button class="boton" @click="iniciarsesion">Iniciar sesión</button>
-
+      <button class="boton" @click="iniciarsesion2">Iniciar sesión</button>
       <div class="imagen2">
         <img width="10%" :src="require('@/assets/google.png')" alt="Imagen 2" />
       </div>
@@ -48,19 +50,32 @@ export default {
       contrasena: "",
       estatus: false,
       sesion: false,
+      token: "",
     };
   },
   methods: {
-    iniciarsesion() {
-      if (this.usuario === "admin" && this.contrasena === "admin") {
-        this.sesion = true;
-        localStorage.setItem("sesion", "true");
-        this.$router.push({ name: "InterfazView" });
-      } else if (this.usuario !== "admin" || this.contrasena !== "admin") {
-        this.usuario = "";
-        this.contrasena = "";
-        this.sesion = false;
-        localStorage.setItem("sesion", "false");
+    iniciarsesion2: async function () {
+      if (this.usuario != null && this.contrasena != null) {
+        try {
+          await this.axios
+            .post("https://api-login-token.onrender.com/login", {
+              username: this.usuario,
+              password: this.contrasena,
+            })
+            .then((response) => {
+              this.token = response.data.access_token;
+              this.sesion = true;
+              localStorage.setItem("key", this.token);
+              this.$router.push({ name: "InterfazView" });
+              console.log(this.token);
+            });
+        } catch (error) {
+          if (error.response) {
+            console.error("Error al iniciar sesión:", error.response);
+          }
+        }
+      } else {
+        alert("campo vacio");
       }
     },
   },
@@ -121,6 +136,7 @@ export default {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .boton {
+  display: grid;
   grid-column: span 4;
   grid-row: span 2;
   border-radius: 10px;

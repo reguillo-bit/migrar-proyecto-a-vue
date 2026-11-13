@@ -52,6 +52,7 @@ export default {
       local: JSON.parse(localStorage.getItem("comidas") || "[]"),
       abrir: false,
       nuevacomida: {
+        id: 0,
         nombre: "",
         precio: 0,
         imagen: "",
